@@ -1,6 +1,6 @@
 import pytest
-from Homework_13_1_Nadelyaev_DA.class_for_work import Category
-from Homework_13_1_Nadelyaev_DA.class_for_work import Product
+from class_for_work import Category
+from class_for_work import Product
 
 
 @pytest.fixture
