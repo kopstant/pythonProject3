@@ -50,19 +50,11 @@ class Product:
         Метод setter для атрибута цены.
         Принимает новое значение, если цена <= 0 print('Цена введена некорректно'), при этом цена не устанавливается.
         """
+        user_answer = input('Подтвердите понижение цены: y/n ')
         if new_price <= 0:
             print('Цена введена некорректно')
-        elif new_price > self.__price:
+        elif new_price > self.__price and user_answer == 'y':
             self.__price = new_price
+            print('Цена изменилась')
         else:
-            while True:
-                user_answer = input('Подтвердите понижение цены: y/n ')
-                if user_answer == 'y':
-                    self.__price = new_price
-                    print('Цена изменилась')
-                    break
-                elif user_answer == 'n':
-                    print('Цена не изменилась')
-                    break
-                else:
-                    print('Введите один из предложенных вариантов: y/n ')
+            print('Цена не изменилась')
