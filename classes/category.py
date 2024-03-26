@@ -9,7 +9,7 @@ class Category:
     all_quantity_category = 0
     all_quantity_unique_product = 0
 
-    def __init__(self, name: str, description: str, products):
+    def __init__(self, name: str, description: str, products: list):
         """
         Метод для инициализации класса Category
         """
@@ -20,11 +20,12 @@ class Category:
         Category.all_quantity_category += 1     # Подсчитывает категории товаров
         Category.all_quantity_unique_product += len(set(self.__products))   # Подсчитывает уникальные продукты
 
-    def products(self, new_product):
+    def adding_product(self, new_product):
         """
         Метод, который принимает на вход объекта товар и добавляет его в список
         """
         self.__products.append(new_product)
+        Category.all_quantity_unique_product += len(set(self.__products))
 
     @property
     def getting_list_of_product(self):
@@ -40,5 +41,7 @@ class Category:
 
     @property
     def products(self):
-        """Метод getter для корректного отображения изменения цены (задание 4)"""
+        """
+        Метод getter для корректного отображения изменения цены (задание 4)
+        """
         return self.__products
