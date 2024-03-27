@@ -13,8 +13,5 @@ if __name__ == '__main__':
     smartphones = Category('Smartphones', 'Smarter than humans', [iphone, samsung, xiaomi, nokia])
     processors = Category('Processors', 'Hotter than the Sun', [intel, amd])
 
-    sony = Product.creating_product('Xperia', '1Gb, Red', 1500, 1)
-
-
     print(iphone)
     print(smartphones)

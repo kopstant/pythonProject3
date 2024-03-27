@@ -55,6 +55,5 @@ class Product:
             self.__price = new_price
             print('Цена повышена')
         elif new_price < self.__price and user_answer == 'y':
+            self.__price = new_price
             print('Цена понижена')
-        else:
-            print('Операция отменена')
