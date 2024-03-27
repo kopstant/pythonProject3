@@ -17,12 +17,8 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def creating_product(cls, name, description, price, quantity):
-        """
-        Метод, который создает товар и возвращает объект,
-        который можно добавлять в список товаров
-        """
-        return cls(name, description, price, quantity)
+    def creating_product(cls, product_data: dict):
+        return cls(**product_data)
 
     def adding_product(self, list_of_product):
         """
@@ -48,13 +44,17 @@ class Product:
     def price(self, new_price):
         """
         Метод setter для атрибута цены.
-        Принимает новое значение, если цена <= 0 print('Цена введена некорректно'), при этом цена не устанавливается.
+        Принимает новое значение, если цена <= 0 print('Цена введена некорректно'), при этом цена не устанавливается.\
+        В случае если цена товара понижается, добавьте логику подтверждения пользователем вручную
+        через ввод y(значит yes) или n (значит no) для согласия понизить цену или для отмены действия соответственно.
         """
         user_answer = input('Подтвердите понижение цены: y/n ')
         if new_price <= 0:
             print('Цена введена некорректно')
-        elif new_price > self.__price and user_answer == 'y':
+        elif new_price > self.__price:
             self.__price = new_price
-            print('Цена изменилась')
+            print('Цена повышена')
+        elif new_price < self.__price and user_answer == 'y':
+            print('Цена понижена')
         else:
-            print('Цена не изменилась')
+            print('Операция отменена')

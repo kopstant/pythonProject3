@@ -25,7 +25,7 @@ class Category:
         Метод, который принимает на вход объекта товар и добавляет его в список
         """
         self.__products.append(new_product)
-        Category.all_quantity_unique_product += len(set(self.__products))
+        Category.all_quantity_unique_product += 1
 
     @property
     def getting_list_of_product(self):
