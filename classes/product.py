@@ -48,12 +48,13 @@ class Product:
         В случае если цена товара понижается, добавьте логику подтверждения пользователем вручную
         через ввод y(значит yes) или n (значит no) для согласия понизить цену или для отмены действия соответственно.
         """
-        user_answer = input('Подтвердите понижение цены: y/n ')
         if new_price <= 0:
             print('Цена введена некорректно')
         elif new_price > self.__price:
             self.__price = new_price
             print('Цена повышена')
-        elif new_price < self.__price and user_answer == 'y':
-            self.__price = new_price
-            print('Цена понижена')
+        elif new_price < self.__price:
+            user_answer = input('Подтвердите понижение цены: y/n ')
+            if user_answer == 'y':
+                self.__price = new_price
+                print('Цена понижена')

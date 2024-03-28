@@ -23,7 +23,13 @@ def category_smartphones():
 
 @pytest.fixture()
 def adding_products():
-    return Product.creating_product('Iphone 15', '512GB, Gray space', 250000.0, 25)
+    data_for_product = {
+        'name': 'Iphone 15 Pro',
+        'description': '512Gb Red',
+        'price': 250000.0,
+        'quantity': 5
+    }
+    return Product.creating_product(data_for_product)
 
 
 def test_product_init(product_iphone):
@@ -50,4 +56,10 @@ def test_category_init(category_smartphones):
 
 
 def test_adding_products(adding_products):
-    assert Product.creating_product('Iphone 15', '512GB, Gray space', 250000.0, 25)
+    data_for_product = {
+        'name': 'Iphone 15 Pro',
+        'description': '512Gb Red',
+        'price': 250000.0,
+        'quantity': 5
+    }
+    assert Product.creating_product(data_for_product)

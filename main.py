@@ -1,9 +1,16 @@
 from classes.category import Category
 from classes.product import Product
 
+data_for_product = {
+    'name': 'Iphone 15 Pro',
+    'description': '512Gb Red',
+    'price': 250000.0,
+    'quantity': 5
+}
+
 if __name__ == '__main__':
-    iphone = Product('Iphone 15', '512GB, Gray space', 210000.0, 8)
-    samsung = Product('Galaxy 10', '256GB, Green', 150000.0, 5)
+    iphone = Product('Iphone 15', '512Gb, Gray space', 210000.0, 8)
+    samsung = Product('Galaxy 10', '256Gb, Green', 150000.0, 5)
     xiaomi = Product('Redmi 5', '128Gb, Red', 64000.0, 15)
     nokia = Product('3310', '8Gb, Smoke', 5000, 100)
 
@@ -15,3 +22,9 @@ if __name__ == '__main__':
 
     print(iphone)
     print(smartphones)
+
+    xiaomi.price = 50000.0
+
+    iphone_15_pro = Product.creating_product(data_for_product)
+    print(iphone_15_pro)
+    print(xiaomi.price)
