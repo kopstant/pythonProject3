@@ -20,6 +20,19 @@ class Category:
         Category.all_quantity_category += 1     # Подсчитывает категории товаров
         Category.all_quantity_unique_product += len(set(self.__products))   # Подсчитывает уникальные продукты
 
+        self.categories_count = Category.all_quantity_category
+        self.product_count = Category.all_quantity_unique_product
+
+    def __len__(self):
+        return len(self.__products)
+
+    def __str__(self):
+        """
+        Добавляем строковое отображение в виде:
+        Название категории, количество продуктов.
+        """
+        return f'{self.name}, количество продуктов: {len(self)} шт.'
+
     def adding_product(self, new_product):
         """
         Метод, который принимает на вход объекта товар и добавляет его в список

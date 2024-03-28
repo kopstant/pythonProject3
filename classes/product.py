@@ -16,6 +16,19 @@ class Product:
         self.__price = float(price)
         self.quantity = quantity
 
+    def __str__(self):
+        """
+        Добавляем строковое отображение в виде:
+        Название продукта, цена руб. Остаток: 15 шт.
+        """
+        return f'{self.name}, {self.price} руб. Остаток: {self.quantity}.'
+
+    def __add__(self, other):
+        """
+        Магический метод для отображения общего баланса
+        """
+        return self.__price * self.quantity + other.__price * other.quantity
+
     @classmethod
     def creating_product(cls, product_data: dict):
         return cls(**product_data)
@@ -53,7 +66,7 @@ class Product:
         elif new_price > self.__price:
             self.__price = new_price
             print('Цена повышена')
-        else:
+        elif new_price < self.__price:
             user_answer = input('Подтвердите понижение цены: y/n ')
             if user_answer == 'y':
                 self.__price = new_price

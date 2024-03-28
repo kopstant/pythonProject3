@@ -23,7 +23,7 @@ if __name__ == '__main__':
     print(iphone)
     print(smartphones)
 
-    xiaomi.price = 50000.0
+    xiaomi.price = 63000.0
 
     iphone_15_pro = Product.creating_product(data_for_product)
     print(iphone_15_pro)
