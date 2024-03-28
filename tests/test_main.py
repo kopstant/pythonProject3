@@ -63,3 +63,15 @@ def test_adding_products(adding_products):
         'quantity': 5
     }
     assert Product.creating_product(data_for_product)
+
+
+def test_category_print(category_smartphones):
+    assert category_smartphones.__str__() == 'Smartphones, количество продуктов: 2 шт.'
+
+
+def test_product_print(product_iphone):
+    assert product_iphone.__str__() == 'Iphone 15, 210000.0 руб. Остаток: 8.'
+
+
+def test_product_add(product_iphone, product_intel):
+    assert product_iphone + product_intel == 2_130_000.0
