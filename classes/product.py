@@ -53,7 +53,7 @@ class Product:
         elif new_price > self.__price:
             self.__price = new_price
             print('Цена повышена')
-        elif new_price < self.__price:
+        else:
             user_answer = input('Подтвердите понижение цены: y/n ')
             if user_answer == 'y':
                 self.__price = new_price
