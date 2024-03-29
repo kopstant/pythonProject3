@@ -24,7 +24,10 @@ class Category:
         self.product_count = Category.all_quantity_unique_product
 
     def __len__(self):
-        return len(self.__products)
+        count_products = 0
+        for product in self.__products:
+            count_products += product.quantity
+        return count_products
 
     def __str__(self):
         """
