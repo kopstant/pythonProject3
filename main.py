@@ -28,3 +28,5 @@ if __name__ == '__main__':
     iphone_15_pro = Product.creating_product(data_for_product)
     print(iphone_15_pro)
     print(xiaomi.price)
+
+print(len(smartphones))
