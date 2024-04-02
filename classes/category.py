@@ -1,3 +1,6 @@
+from classes.product import Product
+
+
 class Category:
     """
     Класс описывающий категорию продуктов, имеющий атрибуты имени, описания и списка продукции,
@@ -20,9 +23,6 @@ class Category:
         Category.all_quantity_category += 1     # Подсчитывает категории товаров
         Category.all_quantity_unique_product += len(set(self.__products))   # Подсчитывает уникальные продукты
 
-        self.categories_count = Category.all_quantity_category
-        self.product_count = Category.all_quantity_unique_product
-
     def __len__(self):
         count_products = 0
         for product in self.__products:
@@ -40,8 +40,9 @@ class Category:
         """
         Метод, который принимает на вход объекта товар и добавляет его в список
         """
-        self.__products.append(new_product)
-        Category.all_quantity_unique_product += 1
+        if isinstance(new_product, Product):
+            self.__products.append(new_product)
+            Category.all_quantity_unique_product += 1
 
     @property
     def getting_list_of_product(self):
