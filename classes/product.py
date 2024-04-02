@@ -27,7 +27,9 @@ class Product:
         """
         Магический метод для отображения общего баланса
         """
-        return self.__price * self.quantity + other.__price * other.quantity
+        if type(other) == self.__class__:
+            return self.__price * self.quantity + other.__price * other.quantity
+        return 'Нельзя складывать продукты разных типов'
 
     @classmethod
     def creating_product(cls, product_data: dict):

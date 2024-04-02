@@ -2,6 +2,7 @@ import pytest
 
 from classes.category import Category
 from classes.product import Product
+from classes.smartphone import SmartPhone
 
 
 @pytest.fixture()
