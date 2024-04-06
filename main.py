@@ -19,14 +19,3 @@ if __name__ == '__main__':
 
     smartphones = Category('Smartphones', 'Smarter than humans', [iphone, samsung, xiaomi, nokia])
     processors = Category('Processors', 'Hotter than the Sun', [intel, amd])
-
-    print(iphone)
-    print(smartphones)
-
-    xiaomi.price = 63000.0
-
-    iphone_15_pro = Product.creating_product(data_for_product)
-    print(iphone_15_pro)
-    print(xiaomi.price)
-
-print(len(smartphones))

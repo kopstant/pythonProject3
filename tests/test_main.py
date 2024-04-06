@@ -35,8 +35,7 @@ def adding_products():
 
 @pytest.fixture()
 def smartphone_iphone():
-    return SmartPhone('Apple', 'Device with bited apple', 160_000, 10, 2.65, 'iPhone 11', 256, 'Black')
-
+    return SmartPhone('Apple', 'Device with bited apple', 160000, 10, 2.65, 'iPhone 11', 256, 'Black')
 
 
 def test_product_init(product_iphone):
@@ -83,19 +82,19 @@ def test_product_print(product_iphone):
 def test_product_add(product_iphone, product_intel):
     assert product_iphone + product_intel == 2_130_000.0
     with pytest.raises(TypeError):
-        assert product_iphone + product_intel
+        assert product_iphone + smartphone_iphone
 
 
 def test_smartphone_init(smartphone_iphone):
     assert smartphone_iphone.name == 'Apple'
-    assert smartphone_iphone.desc == 'Device with bited apple'
-    assert smartphone_iphone.price == 160_000.0
-    assert smartphone_iphone.available == 10
-    assert smartphone_iphone.perfomance == 2.65
+    assert smartphone_iphone.description == 'Device with bited apple'
+    assert smartphone_iphone.price == 160000.0
+    assert smartphone_iphone.quantity == 10
+    assert smartphone_iphone.performance == 2.65
     assert smartphone_iphone.model == 'iPhone 11'
     assert smartphone_iphone.memory == 256
     assert smartphone_iphone.color == 'Black'
 
 
-def test_product_repr(product_iphone):
-    assert product_iphone.__repr__() == SmartPhone['Apple', 'Device with bited apple', 160000, 10, 2.65, 'iPhone 11', 256, 'Black']
+def test_product_repr(smartphone_iphone):
+    assert smartphone_iphone.__repr__() == "SmartPhone['Apple', 'Device with bited apple', 160000.0, 10, 2.65, 'iPhone 11', 256, 'Black']"
