@@ -1,5 +1,10 @@
-class Product:
+from classes.abstact import AbstractProduct
+from classes.mixin_ import PrintMixin
+
+
+class Product(AbstractProduct, PrintMixin):
     """
+    Базовый класс продукта, от которого будут наследоваться остальные
     Класс для продуктов, который имеет атрибуты имени, описания, цены и количества
     """
     name: str
@@ -29,7 +34,7 @@ class Product:
         """
         if type(other) == self.__class__:
             return self.__price * self.quantity + other.__price * other.quantity
-        return 'Нельзя складывать продукты разных типов'
+        raise TypeError('Нельзя складывать продукты разных типов')
 
     @classmethod
     def creating_product(cls, product_data: dict):

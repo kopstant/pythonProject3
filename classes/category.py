@@ -43,6 +43,8 @@ class Category:
         if isinstance(new_product, Product):
             self.__products.append(new_product)
             Category.all_quantity_unique_product += 1
+        else:
+            raise TypeError('Нельзя к продукту добавлять лишние объекты')
 
     @property
     def getting_list_of_product(self):
