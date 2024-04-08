@@ -64,3 +64,16 @@ class Category:
         Метод getter для корректного отображения изменения цены (задание 4)
         """
         return self.__products
+
+    def average(self):
+        """
+        Функция для поиска среднего ценника всех продуктов
+        """
+        getting_sum = 0
+        try:
+            for product in self.__products:
+                getting_sum += product.price
+            result = getting_sum / len(self.__products)
+            return result
+        except ZeroDivisionError:
+            return 0

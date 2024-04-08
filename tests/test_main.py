@@ -79,7 +79,7 @@ def test_product_print(product_iphone):
     assert product_iphone.__str__() == 'Iphone 15, 210000.0 руб. Остаток: 8.'
 
 
-def test_product_add(product_iphone, product_intel):
+def test_product_add(product_iphone, product_intel, smartphone_iphone):
     assert product_iphone + product_intel == 2_130_000.0
     with pytest.raises(TypeError):
         assert product_iphone + smartphone_iphone
@@ -98,3 +98,25 @@ def test_smartphone_init(smartphone_iphone):
 
 def test_product_repr(smartphone_iphone):
     assert smartphone_iphone.__repr__() == "SmartPhone['Apple', 'Device with bited apple', 160000.0, 10, 2.65, 'iPhone 11', 256, 'Black']"
+
+
+@pytest.fixture
+def zero_product():
+    return Product('Zero', 'test exceptions', 100, 0)
+
+
+@pytest.fixture()
+def zero_category():
+    return Category('Zero', 'For test', [])
+
+
+def test_product_value_error(product_iphone, zero_product):
+    with pytest.raises(ValueError, match='Нельзя складывать товары с нулевым количеством!'):
+        assert zero_product + product_iphone
+    with pytest.raises(ValueError, match='Нельзя складывать товары с нулевым количеством!'):
+        assert product_iphone + zero_product
+
+
+def test_category_average_error(category_smartphones, zero_category):
+    assert category_smartphones.average() == 180000.0
+    assert zero_category.average() == 0
