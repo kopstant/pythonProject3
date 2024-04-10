@@ -110,13 +110,6 @@ def zero_category():
     return Category('Zero', 'For test', [])
 
 
-def test_product_value_error(product_iphone, zero_product):
-    with pytest.raises(ValueError, match='Нельзя складывать товары с нулевым количеством!'):
-        assert zero_product + product_iphone
-    with pytest.raises(ValueError, match='Нельзя складывать товары с нулевым количеством!'):
-        assert product_iphone + zero_product
-
-
 def test_category_average_error(category_smartphones, zero_category):
     assert category_smartphones.average() == 180000.0
     assert zero_category.average() == 0

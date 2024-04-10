@@ -32,9 +32,7 @@ class Product(AbstractProduct, PrintMixin):
         """
         Магический метод для отображения общего баланса
         """
-        if self.quantity == 0 or other.quantity == 0:
-            raise ValueError('Нельзя складывать товары с нулевым количеством!')
-        if type(other) == self.__class__:
+        if self.__class__ == type(other):
             return self.__price * self.quantity + other.__price * other.quantity
         raise TypeError('Нельзя складывать продукты разных типов')
 
