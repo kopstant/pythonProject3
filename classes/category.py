@@ -40,6 +40,8 @@ class Category:
         """
         Метод, который принимает на вход объекта товар и добавляет его в список
         """
+        if new_product.quentity == 0:
+            raise ValueError('Нельзя складывать товары с нулевым количеством!')
         if isinstance(new_product, Product):
             self.__products.append(new_product)
             Category.all_quantity_unique_product += 1
